@@ -1,10 +1,23 @@
-function ItemListContainer({ mensaje }) {
+import { useState, useEffect } from "react";
+import { useParams } from "react-router";
+import ItemList from "./ItemList";
+
+function ItemListContainer () {
+  const [products, setProducts] = useState([]);
+  const { categoryId } = useParams();
+
+  useEffect(() => {
+    const url_base = 'https://dummyjson.com/products';
+    const url_category = `https://dummyjson.com/products/category/${categoryId}`;
+
+    fetch(categoryId ? url_category : url_base)
+      .then(res => res.json())
+      .then(data => setProducts(data.products));
+
+  }, [categoryId]);
+
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-semibold text-center">
-        {mensaje}
-      </h2>
-    </div>
+    <ItemList items={products} />
   );
 }
 
