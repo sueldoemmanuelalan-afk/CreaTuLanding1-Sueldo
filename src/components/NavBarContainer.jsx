@@ -11,6 +11,5 @@ function NavBarContainer() {
   }, []);
   return <Navbar categories={categories} />;
 }
-  
 
 export default NavBarContainer;

@@ -4,10 +4,10 @@ import { CartContext } from "../context/CartContext";
 function ItemCount({item}) {
   const [count, setCount] = useState(1);
   const { addToCart } = useContext(CartContext);
-
   const handleIncrement = () => {
-    setCount(count + 1);
-  };
+    if (count < item.stock) {
+      setCount(count + 1);
+    }};
 
   const handleDecrement = () => {
     if (count === 1) return
@@ -25,7 +25,7 @@ function ItemCount({item}) {
           -
         </button>
         <span className="px-3 bg-gray-200 text-black">{count}</span>
-        <button onClick={handleIncrement} className="px-2 bg-blue-600 text-white ml-1">
+        <button onClick={handleIncrement} disabled={count >= item?.stock} className="px-2 bg-blue-600 text-white ml-1 disabled:bg-gray-400">
           +
         </button>
         <button onClick={handleAddToCart} disabled={count > item?.stock} className="bg-red-500 hover:bg-yellow-300 hover:text-black text-white rounded-lg px-3 py-1 ml-4 ">
