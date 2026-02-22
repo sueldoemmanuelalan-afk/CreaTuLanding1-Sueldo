@@ -1,5 +1,5 @@
 import { useCart } from "../context/UseCart";
-import CartList from "./Cartlist";
+import CartList from "./CartList";
 
 function CartContainer() {
   const {cart}= useCart();

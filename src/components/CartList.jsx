@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import CartItem from "./CartItem";
 
 function CartList({ cart }) {
@@ -19,9 +20,9 @@ function CartList({ cart }) {
         ))}
       </div>
       <div className="flex justify-between mt-10 items-center">
-        <button className="bg-gray-300 px-6 py-3 rounded-xl hover:bg-gray-400">
+        <Link to="/" className="bg-gray-300 px-6 py-3 rounded-xl hover:bg-gray-400">
           Seguir comprando
-        </button>
+        </Link>
         <div className="bg-red-500 text-white px-6 py-3 rounded-xl font-bold">
           Total: ${formattedTotal}
         </div>

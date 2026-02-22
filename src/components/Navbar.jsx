@@ -9,8 +9,8 @@ function Navbar({ categories }) {
   };
 
   return (
-    <nav className="navbar flex items-center justify-between bg-black text-white px-6 py-4">
-      <Link to="/" className="text-xl font-bold">The LasT Player</Link>
+    <nav className="navbar flex items-center justify-between bg-black text-white px-6 py-4 fixed w-full top-0 z-50">
+      <Link to="/" className="text-xl font-bold hover:text-red-500"><span className="text-red-500">⮪</span>The LasT Player</Link>
       <div className="dropdown relative ">
         <details ref={detailRef}>
           <summary className="cursor-pointer bg-red-500 hover:bg-yellow-300 hover:text-black px-2 py-1 rounded">Categorías</summary>

@@ -6,12 +6,12 @@ function CartItem({ item }) {
   return (
     <div className="flex items-center gap-6 border border-yellow-300 rounded-2xl p-6 shadow-md">
       <img
-        src={item.thumbnail}
-        alt={item.title}
-        className="w-28 h-28 object-cover rounded-xl"/>
+        src={item.url}
+        alt={item.name}
+        className="w-35 h-50 object-cover rounded-xl"/>
       <div className="flex-1">
         <h3 className="text-xl font-semibold bg-yellow-100 p-2 rounded-lg">
-          {item.title}
+          {item.name}
         </h3>
         <p className="text-yellow-500 text-sm">
           {item.description}
