@@ -4,7 +4,7 @@ function CartItem({ item }) {
   const { increaseQuantity, decreaseQuantity, removeItem } = useCart();
 
   return (
-    <div className="flex items-center gap-6 border border-yellow-300 rounded-2xl p-6 shadow-md">
+    <div className="flex flex-col lg:flex-row items-center gap-6 border border-yellow-300 rounded-2xl p-6 shadow-md">
       <img
         src={item.url}
         alt={item.name}
@@ -20,7 +20,7 @@ function CartItem({ item }) {
           ${item.price * item.count}
         </p>
       </div>
-      <div className="flex flex-col items-center gap-3">
+      <div className="flex flex-col lg:flex-row items-center gap-3">
         <div className="flex items-center gap-3">
           <button onClick={() => decreaseQuantity(item.id)} disabled={item.count <= 1} className="bg-gray-200 px-3 py-1 rounded">
             -

@@ -12,7 +12,7 @@ function CartList({ cart }) {
 
   return (
     <div className="max-w-5xl mx-auto p-8">
-      <h2 className="text-3xl font-bold mb-8 text-center text-yellow-300">
+      <h2 className="text-3xl font-bold mb-8 text-center mt-15 text-yellow-300">
         Tu Lista de Compras
       </h2>
       <div className="space-y-6 mb-10">
@@ -20,7 +20,7 @@ function CartList({ cart }) {
           <CartItem key={item.id} item={item} />
         ))}
       </div>
-      <div className="flex justify-between mt-10 items-center">
+      <div className="flex flex-col lg:flex-row gap-4 justify-between mt-10 items-center">
         <Link to="/" className="bg-gray-300 px-6 py-3 rounded-xl hover:bg-gray-400">
           Seguir comprando
         </Link>

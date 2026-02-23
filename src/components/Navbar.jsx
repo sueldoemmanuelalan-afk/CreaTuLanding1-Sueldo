@@ -10,11 +10,11 @@ function Navbar({ categories }) {
 
   return (
     <nav className="navbar flex items-center justify-between bg-black text-white px-6 py-4 fixed w-full top-0 z-50">
-      <Link to="/" className="text-xl font-bold hover:text-red-500"><span className="text-red-500">⮪</span>The LasT Player</Link>
+      <Link to="/" className="text-xl font-bold hover:text-red-500 hidden lg:block"><span className="text-red-500">⮪</span>The LasT Player</Link>
       <div className="dropdown relative ">
         <details ref={detailRef}>
           <summary className="cursor-pointer bg-red-500 hover:bg-yellow-300 hover:text-black px-2 py-1 rounded">Categorías</summary>
-            <ul className="mt-2 w-50 lg:grid-cols-2 lg:w-100 ms-[-75px] grid grid-cols-1 z-10 bg-gray-800 p-4 rounded shadow-lg absolute">
+            <ul className="mt-2 w-50 lg:grid-cols-2 lg:w-100 grid grid-cols-1 z-10 bg-gray-800 p-4 rounded shadow-lg absolute">
               {categories.map((category) => (
               <Link to={`/category/${category}`} key={category} onClick={closeDDropdown} className=" cursor-pointer hover:text-yellow-300">{category}</Link>
               ))}

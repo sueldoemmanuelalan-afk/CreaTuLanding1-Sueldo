@@ -17,7 +17,7 @@ function Checkout() {
 
   return (
     <div className="h-100 mt-20 bg-black text-white flex items-center justify-center">  
-      <form className="fieldset bg-base-200 border-base-300 rounded-box border-red-500 border p-4 flex flex-col w-[60%] justify-center mt-20"
+      <form className="fieldset bg-base-200 border-base-300 rounded-box border-red-500 border p-4 flex flex-col w-[80%] justify-center mt-20"
       onSubmit={handleSubmit}>
         <legend className="fieldset-legend font-bold bg-yellow-500 text-black flex justify-center">Datos necesarios para finalizar compra:</legend>
 
