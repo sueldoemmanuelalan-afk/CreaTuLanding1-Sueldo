@@ -1,12 +1,13 @@
 import { Link } from "react-router";
 import CartItem from "./CartItem";
+import { useNavigate } from "react-router";
 
 function CartList({ cart }) {
   const total = cart.reduce(
     (acc, item) => acc + item.price * item.count,
     0
   );
-
+  const navigate = useNavigate();
   const formattedTotal = total.toFixed(2);
 
   return (
@@ -26,8 +27,8 @@ function CartList({ cart }) {
         <div className="bg-red-500 text-white px-6 py-3 rounded-xl font-bold">
           Total: ${formattedTotal}
         </div>
-        <button className="bg-green-600 text-white px-6 py-3 rounded-xl hover:bg-green-700">
-          Finalizar compra
+        <button className="bg-green-600 text-white px-6 py-3 rounded-xl hover:bg-green-700" onClick={() => navigate("/checkout")}>
+          Completar Compra
         </button>
       </div>
     </div>

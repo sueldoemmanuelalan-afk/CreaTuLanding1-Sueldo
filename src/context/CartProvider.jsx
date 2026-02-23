@@ -4,14 +4,14 @@ import { useState } from "react";
 function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const addToCart = (product) => {
-  const existingProduct = cart.some(item => item.id === product.id);
+  const existingProduct = cart.find(item => item.id === product.id);
 
     if (!existingProduct) {
-      setCart([...cart, product]);
+      setCart([...cart, { ...product, count: product.count || 1 }]);
       } else {
-      const newCount = existingProduct.count + product.count;
+      const newCount = existingProduct.count + (product.count || 1);
 
-      if (newCount > product.stock) return;
+      if (newCount > existingProduct.stock) return;
       const updatedCart = cart.map(item =>
       item.id === product.id
         ? { ...item, count: newCount }
@@ -41,7 +41,7 @@ function CartProvider({ children }) {
     setCart(cart.filter(item => item.id !== id));
   };
   const getProductQuantity = () =>
-    cart.reduce((acc, current) => acc + current.count, 0);
+    cart.reduce((acc, current) => acc + (current.count || 0), 0);
 
   return (
     <CartContext.Provider
