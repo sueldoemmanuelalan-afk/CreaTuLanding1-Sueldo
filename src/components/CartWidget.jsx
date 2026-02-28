@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 function CartWidget() {
   const { getProductQuantity } = useContext(CartContext);

@@ -1,23 +1,24 @@
 import { useState, useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import  toast  from "react-hot-toast";
 
 function ItemCount({item}) {
   const [count, setCount] = useState(1);
   const { addToCart } = useContext(CartContext);
   const handleIncrement = () => {
     if (count < item.stock) {
-      setCount(count + 1);
+      setCount(prev => prev + 1);
     }};
 
   const handleDecrement = () => {
     if (count === 1) return
-      setCount(count - 1);
+      setCount(prev => prev - 1);
     };
     
     const handleAddToCart = () => {
       addToCart({...item, count: count});
-    }
-
+      toast.success(`${item.name} , ${count} unidades agregado al carrito!`);
+    };
   return (
     <div className="flex justify-center flex-col items-center">
       <div className="mt-4 mb-4">
@@ -28,8 +29,8 @@ function ItemCount({item}) {
         <button onClick={handleIncrement} disabled={count >= item?.stock} className="px-2 bg-blue-600 text-white ml-1 disabled:bg-gray-400">
           +
         </button>
-        <button onClick={handleAddToCart} disabled={count > item?.stock} className="bg-red-500 hover:bg-yellow-300 hover:text-black text-white rounded-lg px-3 py-1 ml-4 ">
-          Agregar al carrito
+        <button onClick={handleAddToCart} disabled={count > item?.stock} className="bg-red-500 hover:bg-yellow-300 hover:text-black text-white rounded-lg px-3 py-1 ml-4 mt-3">
+          Añadir al 🛒
         </button>
       </div>
     </div>

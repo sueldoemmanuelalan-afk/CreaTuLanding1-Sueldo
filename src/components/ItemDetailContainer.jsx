@@ -1,18 +1,29 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
-import { getItem } from "../firebase/db";
+import { 
+  getItem, 
+  getAllItemsArray, 
+  getItemsByCategoryArray 
+} from "../firebase/db";
 
 function ItemDetailContainer() {
   const [item, setItem] = useState();
-  const { id } = useParams();
+  const [items, setItems] = useState([]);
+  const { id, categoryId } = useParams();
 
   useEffect(() => {
     getItem(id).then(data => setItem(data));
   }, [id]);
 
-  return <ItemDetail item={item} />;
-    
+  useEffect(() => {
+    const promise = categoryId
+      ? getItemsByCategoryArray(categoryId)
+      : getAllItemsArray();
+    promise.then(data => setItems(data));
+  }, [categoryId]);
+
+  return <ItemDetail item={item} items={items} />;
 }
 
 export default ItemDetailContainer;

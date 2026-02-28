@@ -1,5 +1,19 @@
 @import "tailwindcss";
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(2.5rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s ease-out;
+}
 body {
   background-color: black;
+}
+.swal-gamer {
+  border: 2px solid #facc15;
+  box-shadow:
+    0 0 5px #facc15,
+    0 0 15px #facc15,
+    0 0 30px #facc15;
 }
 

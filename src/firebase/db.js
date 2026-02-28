@@ -5,6 +5,7 @@ import {
   query,
   where, 
   doc, 
+  orderBy,
   getDoc,
   addDoc
   } from "firebase/firestore";
@@ -30,6 +31,15 @@ export const getItems = async (category, setProducts) => {
   setProducts(items);
 }
 
+export const getAllItemsArray = async () => {
+  const snapshot = await getDocs(collection(db, "items"));
+  
+  return snapshot.docs.map(doc => ({
+    id: doc.id,
+    ...doc.data()
+  }));
+};
+
 export const getCategories = async () => {
   const querySnapshot = await getDocs(collection(db, "categories"));
   const categories = [];
@@ -51,11 +61,22 @@ export const getItem = async (id) => {
 }
 
 export const createOrder = async (order) => {
-    try {
-    const docRef = await addDoc(collection(db, "orders"), order);
-    console.log("Document written with ID: ", docRef.id);
-  } catch (e) {
-    console.error("Error adding document: ", e);
-  }
-}
+  const docRef = await addDoc(collection(db, "orders"), order);
+  return docRef.id;
+};
+
+export const getItemsByCategoryArray = async (category) => {
+  const q = query(
+    collection(db, "items"),
+    where("category", "==", category),
+    orderBy("name")
+  );
+
+  const snapshot = await getDocs(q);
+
+  return snapshot.docs.map(doc => ({
+    id: doc.id,
+    ...doc.data()
+  }));
+};
 

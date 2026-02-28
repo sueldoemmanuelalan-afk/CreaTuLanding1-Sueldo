@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import CartWidget from "./CartWidget";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 function Navbar({ categories }) {
   const detailRef = useRef(null);
