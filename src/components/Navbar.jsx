@@ -12,7 +12,7 @@ function Navbar({ categories }) {
 
   return (
     <div className="relative">
-      <nav className="navbar flex items-center justify-between bg-black border-b border-yellow-500 text-white px-6 py-4 fixed w-full top-0 z-50">
+      <nav className="navbar flex items-center justify-between bg-black border-b border-yellow-500 text-white px-4 py-3 fixed w-full top-0 z-50">
         <Link
           to="/"
           className="absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 flex items-center">

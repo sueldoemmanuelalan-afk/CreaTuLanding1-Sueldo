@@ -63,7 +63,7 @@ function ItemDetail({ item, items }) {
   }
 
   return (
-    <div className="relative flex justify-center mt-20 w-full mx-auto p-4">
+    <div className="relative flex justify-center mt-25 w-full mx-auto p-4">
       {currentIndex > 0 && (
         <button
           onClick={goPrev}
