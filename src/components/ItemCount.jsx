@@ -8,7 +8,10 @@ function ItemCount({item}) {
   const handleIncrement = () => {
     if (count < item.stock) {
       setCount(prev => prev + 1);
-    }};
+    } else {
+      toast.error("No hay suficiente stock disponible 🚫");
+    }
+  };
 
   const handleDecrement = () => {
     if (count === 1) return
@@ -26,7 +29,7 @@ function ItemCount({item}) {
           -
         </button>
         <span className="px-3 bg-gray-200 text-black">{count}</span>
-        <button onClick={handleIncrement} disabled={count >= item?.stock} className="px-2 bg-blue-600 text-white ml-1 disabled:bg-gray-400">
+        <button onClick={handleIncrement} className="px-2 bg-blue-600 text-white ml-1 disabled:bg-gray-400">
           +
         </button>
         <button onClick={handleAddToCart} disabled={count > item?.stock} className="bg-red-500 hover:bg-yellow-300 hover:text-black text-white rounded-lg px-3 py-1 ml-4 mt-3">
