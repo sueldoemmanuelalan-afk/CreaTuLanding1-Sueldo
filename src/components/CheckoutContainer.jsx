@@ -58,8 +58,7 @@ function CheckoutContainer() {
     }
   };
 
-  return 
-  <Checkout onSubmit={handleSubmit} />;
+  return <Checkout onSubmit={handleSubmit} />;
 }
 
 export default CheckoutContainer;

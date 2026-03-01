@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
+import logo from "../assets/LogoTheLastPlayer1.jpg";
 
 function Navbar({ categories }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,7 +17,7 @@ function Navbar({ categories }) {
         className="absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 flex items-center"
       >
       <img
-        src="/public/LogoTheLastPlayer1.jpg"
+        src={logo}
         alt="logo The Last Player"
         title="The Last Player"
         className="w-15 transition-transform duration-700 hover:-rotate-[360deg]"
