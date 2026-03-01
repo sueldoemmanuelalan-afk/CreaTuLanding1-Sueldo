@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import ItemDetail from "./ItemDetail";
-import { 
-  getItem, 
-  getAllItemsArray, 
-  getItemsByCategoryArray 
-} from "../firebase/db";
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import ItemDetail from './ItemDetail';
+import {
+  getItem,
+  getAllItemsArray,
+  getItemsByCategoryArray,
+} from '../firebase/db';
 
 function ItemDetailContainer() {
   const [item, setItem] = useState();
@@ -13,14 +13,14 @@ function ItemDetailContainer() {
   const { id, categoryId } = useParams();
 
   useEffect(() => {
-    getItem(id).then(data => setItem(data));
+    getItem(id).then((data) => setItem(data));
   }, [id]);
 
   useEffect(() => {
     const promise = categoryId
       ? getItemsByCategoryArray(categoryId)
       : getAllItemsArray();
-    promise.then(data => setItems(data));
+    promise.then((data) => setItems(data));
   }, [categoryId]);
 
   return <ItemDetail item={item} items={items} />;

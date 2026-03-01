@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 function NotFound({ title, message }) {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ function NotFound({ title, message }) {
           {message}
         </p>
         <button
-          onClick={() => navigate("/")}
+          onClick={() => navigate('/')}
           className="bg-yellow-400 hover:bg-red-600 hover:text-white text-black font-bold py-3 px-8 rounded-xl transition-all duration-300 shadow-lg">
           Volver al inicio
         </button>

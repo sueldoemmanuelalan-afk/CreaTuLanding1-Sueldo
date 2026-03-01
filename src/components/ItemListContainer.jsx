@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import ItemList from "./ItemList";
-import { getItems } from "../firebase/db";
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import ItemList from './ItemList';
+import { getItems } from '../firebase/db';
 
-function ItemListContainer () {
+function ItemListContainer() {
   const [products, setProducts] = useState([]);
   const { categoryId } = useParams();
 
@@ -11,9 +11,7 @@ function ItemListContainer () {
     getItems(categoryId, setProducts);
   }, [categoryId]);
 
-  return (
-    <ItemList items={products} />
-  );
+  return <ItemList items={products} />;
 }
 
 export default ItemListContainer;

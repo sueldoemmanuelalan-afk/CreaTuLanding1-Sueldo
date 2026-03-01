@@ -1,39 +1,41 @@
-import { Link } from "react-router-dom";
-import CartItem from "./CartItem";
-import Swal from "sweetalert2";
+import { Link } from 'react-router-dom';
+import CartItem from './CartItem';
+import Swal from 'sweetalert2';
 
 const GamerSwal = Swal.mixin({
-  background: "#0f0f0f",
-  color: "#facc15",
-  backdrop: "rgba(0,0,0,0.85)",
-  confirmButtonColor: "#dc2626",
-  cancelButtonColor: "#374151",
+  background: '#0f0f0f',
+  color: '#facc15',
+  backdrop: 'rgba(0,0,0,0.85)',
+  confirmButtonColor: '#dc2626',
+  cancelButtonColor: '#374151',
   customClass: {
-    popup: "swal-gamer"
-  }
+    popup: 'swal-gamer',
+  },
 });
 
 function CartList({ cart, clearCart, onCheckout }) {
   const total = cart.reduce(
-    (acc, item) => acc + item.price * item.count,0);
+    (acc, item) => acc + item.price * item.count,
+    0
+  );
   const formattedTotal = total.toFixed(2);
   const handleClearCart = () => {
     GamerSwal.fire({
-      title: "¿Vaciar carrito?",
-      text: "Se eliminarán todos los productos",
-      icon: "warning",
+      title: '¿Vaciar carrito?',
+      text: 'Se eliminarán todos los productos',
+      icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: "Sí, vaciar",
-      cancelButtonText: "Cancelar"
+      confirmButtonText: 'Sí, vaciar',
+      cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
         clearCart();
 
         GamerSwal.fire({
-          title: "Carrito vacío",
-          icon: "success",
+          title: 'Carrito vacío',
+          icon: 'success',
           timer: 1500,
-          showConfirmButton: false
+          showConfirmButton: false,
         });
       }
     });

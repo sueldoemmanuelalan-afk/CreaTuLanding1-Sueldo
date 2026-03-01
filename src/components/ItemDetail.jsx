@@ -1,6 +1,6 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import ItemCount from "./ItemCount";
+import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import ItemCount from './ItemCount';
 
 function ItemDetail({ item, items }) {
   const [loaded, setLoaded] = useState(false);
@@ -13,13 +13,17 @@ function ItemDetail({ item, items }) {
 
   const navigate = useNavigate();
   const { id, categoryId } = useParams();
-  const currentIndex = items.findIndex(prod => prod.id === item.id);
+  const currentIndex = items.findIndex(
+    (prod) => prod.id === item.id
+  );
 
   const goNext = () => {
     if (currentIndex < items.length - 1) {
       const nextItem = items[currentIndex + 1];
       if (categoryId) {
-        navigate(`/category/${categoryId}/item/${nextItem.id}`);
+        navigate(
+          `/category/${categoryId}/item/${nextItem.id}`
+        );
       } else {
         navigate(`/item/${nextItem.id}`);
       }
@@ -30,13 +34,15 @@ function ItemDetail({ item, items }) {
     if (currentIndex > 0) {
       const prevItem = items[currentIndex - 1];
       if (categoryId) {
-        navigate(`/category/${categoryId}/item/${prevItem.id}`);
+        navigate(
+          `/category/${categoryId}/item/${prevItem.id}`
+        );
       } else {
         navigate(`/item/${prevItem.id}`);
       }
     }
   };
-  if (!item ) {
+  if (!item) {
     return (
       <div className="fixed inset-0 bg-black flex items-center justify-center z-50">
         <div className="w-full max-w-4xl p-6 space-y-6 animate-pulse">
@@ -55,7 +61,7 @@ function ItemDetail({ item, items }) {
       </div>
     );
   }
-  
+
   return (
     <div className="relative flex justify-center mt-20 w-full mx-auto p-4">
       {currentIndex > 0 && (
@@ -71,8 +77,7 @@ function ItemDetail({ item, items }) {
       flex items-center justify-center
       text-yellow-400 hover:text-red-500
       transition-all duration-300
-      z-50"
-        >
+      z-50">
           &lt;
         </button>
       )}
@@ -89,14 +94,13 @@ function ItemDetail({ item, items }) {
       flex items-center justify-center
       text-yellow-400 hover:text-red-500
       transition-all duration-300
-      z-50"
-        >
+      z-50">
           &gt;
         </button>
       )}
       <div
         key={item.id}
-        className={`card lg:card-side shadow-sm w-full max-w-3xl border border-red-500 animate-fade-in-up ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+        className={`card lg:card-side shadow-sm w-full max-w-3xl border border-red-500 animate-fade-in-up ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <figure className="px-4 pt-4 bg-black w-full flex items-center justify-center">
           <img
             className="max-h-96 object-contain"
@@ -104,24 +108,39 @@ function ItemDetail({ item, items }) {
             alt={item.name}
           />
         </figure>
-        <div className="card-body items-center text-center p-4 space-y-2 bg-black 
+        <div
+          className="card-body items-center text-center p-4 space-y-2 bg-black 
         text-white">
           <h2 className="card-title font-bold text-xl text-yellow-300">
             {item.name}
           </h2>
-          <p className="text-gray-400">{item.description}</p>
+          <p className="text-gray-400">
+            {item.description}
+          </p>
           <div className="flex mt-5 mb-5 flex-wrap justify-center gap-2">
             {item.url1 && (
-              <img src={item.url1} className="w-40 h-40 object-cover rounded-lg" />
+              <img
+                src={item.url1}
+                className="w-40 h-40 object-cover rounded-lg"
+              />
             )}
             {item.url2 && (
-              <img src={item.url2} className="w-40 h-40 object-cover rounded-lg" />
+              <img
+                src={item.url2}
+                className="w-40 h-40 object-cover rounded-lg"
+              />
             )}
             {item.url3 && (
-              <img src={item.url3} className="w-40 h-40 object-cover rounded-lg" />
+              <img
+                src={item.url3}
+                className="w-40 h-40 object-cover rounded-lg"
+              />
             )}
             {item.url4 && (
-              <img src={item.url4} className="w-40 h-40 object-cover rounded-lg" />
+              <img
+                src={item.url4}
+                className="w-40 h-40 object-cover rounded-lg"
+              />
             )}
           </div>
           <p className="text-xl font-semibold text-green-400">
