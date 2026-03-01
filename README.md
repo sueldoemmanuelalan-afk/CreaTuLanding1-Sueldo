@@ -136,7 +136,10 @@ npm run dev
 "firebase": "^12.9.0",
 "react": "^19.2.0",
 "react-dom": "^19.2.0",
+"react-hot-toast": "^2.6.0",
+"react-router": "^7.13.0",
 "react-router-dom": "^7.12.0",
+"sweetalert2": "^11.26.21",
 "tailwindcss": "^4.1.18"
 ```
 
