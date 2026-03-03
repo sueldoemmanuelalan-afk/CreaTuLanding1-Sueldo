@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import CartWidget from './CartWidget';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/LogoTheLastPlayer1.jpg';
+import SearchWidget from './SearchWidget';
 
 function Navbar({ categories }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,7 +13,7 @@ function Navbar({ categories }) {
 
   return (
     <div className="relative">
-      <nav className="navbar flex items-center justify-between bg-black border-b border-yellow-500 text-white px-4 py-3 fixed w-full top-0 z-50">
+      <nav className="navbar flex items-center justify-between bg-black  text-white px-4 py-3 fixed w-full top-0 z-50">
         <Link
           to="/"
           className="absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 flex items-center">
@@ -53,6 +54,7 @@ function Navbar({ categories }) {
             </ul>
           </details>
         </div>
+        <SearchWidget />
         <CartWidget />
       </nav>
 

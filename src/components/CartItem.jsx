@@ -51,36 +51,41 @@ function CartItem({ item }) {
         className="w-35 h-50 object-cover rounded-xl"
       />
       <div className="flex-1">
-        <h3 className="text-xl font-semibold bg-yellow-100 p-2 rounded-lg">
+        <h3 className="text-xl font-semibold bg-yellow-100 p-1 rounded-lg ">
           {item.name}
         </h3>
-        <p className="text-yellow-500 text-sm">
+        <p className="text-gray-300 mt-2">
           {item.description}
         </p>
-        <p className="font-bold text-lg mt-2 text-green-600">
-          ${item.price * item.count}
-        </p>
+          <div className="flex justify-between items-center mt-3">
+            <p className="font-bold text-xl mt-2 text-green-600">
+             ${item.price * item.count}
+            </p>
+            <p className="text-sm text-yellow-400 float-right">
+              Stock disponible: {item.stock}
+            </p>
+          </div>
       </div>
       <div className="flex flex-col lg:flex-row items-center gap-3">
         <div className="flex items-center gap-3">
           <button
             onClick={() => decreaseQuantity(item.id)}
             disabled={item.count <= 1}
-            className="bg-gray-200 px-3 py-1 rounded">
+            className="bg-yellow-500 px-3 py-1 rounded">
             -
           </button>
-          <span className="font-bold bg-yellow-100 px-3 py-1 rounded">
+          <span className="font-bold bg-gray-200 px-3 py-1 rounded">
             {item.count}
           </span>
           <button
             onClick={handleIncrease}
-            className="bg-gray-200 px-3 py-1 rounded disabled:bg-gray-400">
+            className="bg-yellow-500 px-3 py-1 rounded disabled:bg-gray-400">
             +
           </button>
         </div>
         <button
           onClick={handleRemove}
-          className="bg-red-500 text-white px-4 py-2 rounded-xl">
+          className="bg-red-500 text-white px-2 py-1 rounded-xl">
           Quitar
         </button>
       </div>

@@ -48,7 +48,7 @@ function CartList({ cart, clearCart, onCheckout }) {
       </h2>
       <Link
         to="/"
-        className="bg-gray-300 px-6 py-3 rounded-xl hover:bg-gray-400 text-black font-bold mb-6 inline-block">
+        className="bg-gray-300 px-4 py-1 rounded-xl hover:bg-gray-400 text-black font-bold mb-6 inline-block">
         Seguir comprando
       </Link>
       <div className="space-y-6 mb-10">
@@ -57,17 +57,17 @@ function CartList({ cart, clearCart, onCheckout }) {
         ))}
       </div>
       <div className="flex flex-col lg:flex-row gap-4 justify-between mt-10 items-center">
-        <div className="bg-yellow-100 text-black px-6 py-3 rounded-xl font-bold">
+        <div className="bg-yellow-100 text-black px-4 py-1 rounded-xl font-bold">
           Total: ${formattedTotal}
         </div>
         <button
           onClick={handleClearCart}
-          className="bg-red-500 text-white px-6 py-3 rounded-xl hover:bg-red-600">
+          className="bg-red-500 text-white px-4 py-1 rounded-xl hover:bg-red-600 cursor-pointer">
           Vaciar Carrito
         </button>
         <button
           onClick={onCheckout}
-          className="bg-green-600 text-white px-6 py-3 rounded-xl hover:bg-green-700">
+          className="bg-green-600 text-white px-4 py-1 rounded-xl hover:bg-green-700 cursor-pointer">
           Completar Compra
         </button>
       </div>

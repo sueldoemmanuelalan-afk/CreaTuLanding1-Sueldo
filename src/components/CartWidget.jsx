@@ -12,7 +12,7 @@ function CartWidget() {
       <button
         onClick={() => navigate('/cart')}
         className="p-2">
-        <span className="text-2xl">🛒</span>
+        <span className="text-2xl cursor-pointer">🛒</span>
         <span
           className="absolute -top-1 -right-2 bg-red-500
           text-white text-xs rounded-full px-2">

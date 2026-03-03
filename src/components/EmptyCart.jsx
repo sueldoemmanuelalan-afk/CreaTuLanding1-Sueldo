@@ -19,7 +19,7 @@ function EmptyCart({ onGoShop }) {
         </p>
         <button
           onClick={onGoShop}
-          className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg mt-4">
+          className="bg-red-500 text-white px-4 py-1 rounded-xl hover:bg-red-600 mt-4">
           Ir a comprar
         </button>
       </div>

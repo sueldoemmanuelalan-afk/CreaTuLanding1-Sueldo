@@ -112,7 +112,7 @@ function Checkout({ onSubmit }) {
         <div className="mt-10 flex justify-center">
           <button
             type="submit"
-            className="bg-red-600 hover:bg-yellow-400 hover:text-black transition font-bold py-3 px-10 rounded-xl shadow-lg">
+            className="bg-red-600 hover:bg-yellow-400 hover:text-black transition font-bold py-3 px-10 rounded-xl shadow-lg cursor-pointer">
             Confirmar Orden 🛍️
           </button>
         </div>
