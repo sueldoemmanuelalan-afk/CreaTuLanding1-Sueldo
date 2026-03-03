@@ -119,23 +119,23 @@ Alertas personalizadas (checkout y búsqueda).
 src/
 │
 ├── components/
-│   ├── Navbar/
-│   ├── CartWidget/
-│   ├── SearchWidget/
-│   ├── SearchResults/
-│   ├── ItemList/
-│   ├── ItemDetail/
-│   ├── Checkout/
-│   └── ...
-│
-├── containers/
-│   ├── ItemListContainer.jsx
+│   ├── Navbar.jsx
+│   ├── CartWidget.jsx
+│   ├── SearchWidget.jsx
+│   ├── SearchResults.jsx
+│   ├── ItemList.jsx
+│   ├── ItemDetail.jsx
+│   ├── Checkout.jsx
 │   ├── ItemDetailContainer.jsx
-│   ├── SearchResultsContainer.jsx
+│   ├── NavBarContainer.jsx
+│   ├── CheckoutConatiner.jsx
+│   └── ... 
 │
 ├── context/
 │   └── CartContext.jsx
-│
+│   └── CartProvider.jsx
+│   └── UseCart.jsx
+│ 
 ├── firebase/
 │   └── db.js
 │
